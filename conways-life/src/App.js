@@ -52,8 +52,22 @@ class App extends React.Component {
     });
 
   }
+  playButton = () => {
+    clearInterval(this.intervalId);
+    this.intervalId = setInterval(this.playByRole, 100);
+  }
+  restart = (e) => {
+    e.preventDefault();
+    window.location.reload();
+    clearInterval(this.intervalId);
+    this.intervalId = setInterval(this.playByRole, 100);
+  }
+  pauseButton = () => {
+    clearInterval(this.intervalId);
+  }
   componentDidMount() {
     this.selectRandomBox();
+    this.playButton();
   }
 
   render() {
