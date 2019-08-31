@@ -9,9 +9,6 @@ The main entry point of your application should house the visualization of this 
 - [ ] Cell objects or components that, at a minimum, should have:
     * Properties
         - [ ] currentState: (alive, dead), (black, white)
-        - [ ] isClickable:
-          - can be clicked to allow user to setup initial cell configuration 
-          - should NOT be clickable while simulation is running
     * Behaviors
         - [ ] toggle_state( ): switch between alive & dead either because user manually toggled cell before starting simulation or simulation is running and rules of life caused cell to change state
 - [ ] An appropriate data structure to hold a grid of cells. 
