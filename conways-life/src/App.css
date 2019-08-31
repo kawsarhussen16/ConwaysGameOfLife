@@ -65,7 +65,7 @@ body {
 }
 .btn:hover{
   color: white;
-  background: blueviolet;
+  background: olive;
 }
 
 .center {
@@ -101,5 +101,5 @@ h4 {
   display: flex;
   flex-wrap: wrap;
   text-align: start;
-
+  padding: 30px;
 }

@@ -10,7 +10,8 @@ class App extends React.Component {
     this.cols = 50;
 
     this.state = {
-      generation: 0,
+      start: 0,
+      generation: 1,
       gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
     }
   }
@@ -108,7 +109,6 @@ class Box extends React.Component {
       <div
         className={this.props.boxClass}
         id={this.props.id}
-        onClick={this.selectBox}
       />
     );
   }
@@ -131,7 +131,6 @@ class Grid extends React.Component {
             boxId={boxId}
             col={j}
             row={i}
-            selectBox={this.props.selectBox}
           />
         );
       }
@@ -149,7 +148,7 @@ class Buttons extends React.Component {
     return (
       <div className="center">
         <ButtonToolbar>
-          <button className="btn btn-default" onClick={this.props.playButton}> Play </button>
+          <button className="btn btn-default" onClick={this.props.playButton}> {}Play </button>
           <button className="btn btn-default" onClick={this.props.pause} > Pause </button>
           <button className="btn btn-default" onClick={this.props.clear}> Clear </button>
           <button className="btn btn-default" onClick={this.props.restart} > Restart </button>
