@@ -10,8 +10,7 @@ class App extends React.Component {
     this.cols = 50;
 
     this.state = {
-      start: 0,
-      generation: 1,
+      generation: 0,
       gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
     }
   }
@@ -54,6 +53,7 @@ class App extends React.Component {
 
   }
   playButton = () => {
+    this.selectRandomBox();
     clearInterval(this.intervalId);
     this.intervalId = setInterval(this.playByRole, 100);
   }
@@ -72,6 +72,7 @@ class App extends React.Component {
       gridFull: grid,
       generation: 0
     });
+    clearInterval(this.intervalId);
   }
   componentDidMount() {
     this.selectRandomBox();
