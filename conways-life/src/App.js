@@ -27,11 +27,20 @@ class App extends React.Component {
       gridFull: gridCopy
     });
   }
+  componentDidMount() {
+    this.selectRandomBox();
+  }
 
   render() {
     return (
       <div className="App">
         <h1> The Game of Life</h1>
+        <Grid
+          gridFull={this.state.gridFull}
+          rows={this.rows}
+          cols={this.cols}
+          selectBox={this.selectBox}
+        />
 
         <h2> Generation : {this.state.generation} </h2>
 
