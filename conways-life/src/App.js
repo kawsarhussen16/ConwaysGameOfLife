@@ -27,6 +27,12 @@ class App extends React.Component {
       gridFull: gridCopy
     });
   }
+  playBack = () => {
+    let grid = this.state.gridFull;
+    this.setState({
+      gridFull: grid,
+    })
+  }
   playByRole = () => {
     let g = this.state.gridFull;
     let g2 = arrayClone(this.state.gridFull);
@@ -53,13 +59,12 @@ class App extends React.Component {
 
   }
   playButton = () => {
-    this.selectRandomBox();
     clearInterval(this.intervalId);
     this.intervalId = setInterval(this.playByRole, 100);
   }
   restart = (e) => {
     e.preventDefault();
-    window.location.reload();
+    this.selectRandomBox();
     clearInterval(this.intervalId);
     this.intervalId = setInterval(this.playByRole, 100);
   }
