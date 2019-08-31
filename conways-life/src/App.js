@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
 class App extends React.Component {
@@ -14,6 +14,19 @@ class App extends React.Component {
       gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
     }
   }
+  selectRandomBox = () => {
+    let gridCopy = arrayClone(this.state.gridFull);
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        if (Math.floor(Math.random() * 4) === 1) {
+          gridCopy[i][j] = true;
+        }
+      }
+    }
+    this.setState({
+      gridFull: gridCopy
+    });
+  }
 
   render() {
     return (
@@ -21,10 +34,14 @@ class App extends React.Component {
         <h1> The Game of Life</h1>
 
         <h2> Generation : {this.state.generation} </h2>
+
       </div>
     );
   }
 }
 
+function arrayClone(arr) {
+  return JSON.parse(JSON.stringify(arr));
+}
 
 export default App;
